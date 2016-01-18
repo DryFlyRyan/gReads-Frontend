@@ -1,0 +1,40 @@
+.logo-img {
+  height: 75px;
+  width: auto; }
+
+.header-text {
+  display: inline-block; }
+
+body {
+  height: 100vh;
+  width: 100vw; }
+
+header {
+  height: 17.5vh; }
+
+main {
+  height: 82.5vh; }
+
+.nav-container {
+  background: blue;
+  width: 20%;
+  height: 100%;
+  flex-flow: column nowrap;
+  align-items: baseline;
+  justify-content: center; }
+
+.nav-button {
+  height: 17.5%;
+  width: 60%;
+  margin: 5% 0;
+  background: red; }
+
+.nav-text {
+  display: inline-block; }
+
+.badge-container {
+  height: 20%; }
+
+.rotate-container {
+  height: 80%;
+  position: relative; }
