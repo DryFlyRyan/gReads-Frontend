@@ -8,6 +8,10 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/journal/bootstrap.css">
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     <script src="./script/app.js"></script>
@@ -17,34 +21,63 @@
   <body>
     <header>
       <section class='top-stripe'>
-        <img src="http://image.shutterstock.com/display_pic_with_logo/2381402/238376980/stock-vector-vector-modern-flat-design-square-illustration-on-man-reading-book-with-empty-green-cover-male-238376980.jpg" alt="Galvanize Reads" class="logo-img"/>
-        <h1 class='header-text'>Galvanize Reads</h1>
+          <img src="http://image.shutterstock.com/display_pic_with_logo/2381402/238376980/stock-vector-vector-modern-flat-design-square-illustration-on-man-reading-book-with-empty-green-cover-male-238376980.jpg" alt="Galvanize Reads" class="logo-img"/>
+          <h1 class='header-text'>Galvanize Reads</h1>
       </section>
     </header>
     <main>
-      <section class='nav-container'>
-        <div class='nav-button'>
-          <!-- <div class="badge-container"> -->
-          <!-- </div> -->
-          <!-- <div class="rotate-container"> -->
-            <h1 class='nav-text'>authors</h1>
-            <span class="badge">63</span>
-          <!-- </div> -->
-        </div>
+      <section class='nav-container col-lg-3 flex-col-start'>
+        <a href="#" class="nav-button btn btn-primary btn-lg btn-block">authors<span class="badge">63</span></a>
 
-        <div class='nav-button'>
-          <h1 class='nav-text'>books</h1>
-          <span class='badge'>42</span>
-        </div>
+        <a href="#" class="nav-button btn btn-primary btn-lg btn-block">books<span class="badge">63</span></a>
       </section>
-      <section id='view-container' class='view-container'>
-        <div class="book-container">
+      <section id='view-area' class='view-container col-lg-9'>
 
-        </div>
-        <div class="author-container">
+        <!-- Main View -->
+        <!-- <section class="view-container flex-row-center">
+          <section class="book-container heading-container panel panel-default col-md-4">
+            <div class="book-img-container flex-row-center">
+              <img src="http://www.wired.com/images_blogs/underwire/2012/03/a-fire-upon-the-deep.jpg" alt="a fire upon the deep" />
+            </div>
+            <div class="book-headline-container flex-row-center">
+              <h1>books</h1>
+            </div>
+          </section>
+          <section class="author-container heading-container panel panel-default col-md-offset-1 col-md-4">
+            <div class="author-img-container flex-row-center">
+              <img src="http://img.radio.cz/pictures/spisovatele/vonnegut_kurt1.jpg" alt="kurt vonnegut" />
+            </div>
+            <div class="author-headline-container flex-row-center">
+              <h1>authors</h1>
+            </div>
+          </section>
+        </section> -->
+        <!-- End Main View -->
 
-        </div>
-      </section>
+        <!-- Book Card View -->
+
+
+          <section class="book-card panel panel-default col-md-10 col-md-offset-1">
+            <div class="cover-photo-container col-md-3">
+              <a href="#book" data-id ="id"><img src="http://www.wired.com/images_blogs/underwire/2012/03/a-fire-upon-the-deep.jpg" alt="" class="col-md-10 col-md-offset-1 cover-photo"/></a>
+            </div>
+            <div class="book-text-container col-md-9">
+              <h3>A Fire Upon the Deep</h3>
+              <p class="genre">Science Fiction</p>
+              <blockquote class="description truncated">
+                <p>Lorem Ipsum and A Whole Bunch of Other Stuff</p>
+              </blockquote>
+              <a href="#" data-id="id" class="btn btn-danger crud-btn">Remove Book</a>
+              <a href="#" data-id="id" class="btn btn-primary crud-btn">Edit Book</a>
+              <a href="#" data-id="id" class="btn btn-info crud-btn">View Book</a>
+
+            </div>
+          </section>
+
+        </section>
+
+        <!-- End Book Card View -->
+
     </main>
 
   </body>

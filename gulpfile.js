@@ -11,8 +11,8 @@ gulp.task('serve', ['sass', 'compress', 'build-ready'], function() {
 			}
 	});
 
-	gulp.watch("./**/*.scss", ['sass']);
-	gulp.watch("./js/*.js", ['compress']);
+	gulp.watch("./src/scss/*.scss", ['sass']);
+	gulp.watch("./src/script/*.js", ['compress']);
 	gulp.watch("./*.html", ['build-ready'])
 	gulp.watch("./*.html").on('change', browserSync.reload);
 
@@ -24,7 +24,7 @@ gulp.task('build-ready', function() {
 });
 
 gulp.task('compress', function () {
-	return gulp.src('./src/js/*.js')
+	return gulp.src('./src/script/*.js')
 		.pipe(minify())
 		.pipe(gulp.dest('./build/script'));
 });
