@@ -8,34 +8,60 @@
   display: inline-block;
 }
 
-body {
+body,
+html {
   height: 100vh;
   width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-size: 16pt;
 }
 
 header {
-  height: 17.5vh;
+  height: 15vh;
 }
 
 main {
   height: 82.5vh;
-}
-
-.nav-container {
-  background: blue;
-  width:20%;
-  height: 100%;
-  // display: flex;
-  flex-flow: column nowrap;
-  align-items: baseline;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   justify-content: center;
 }
 
+.badge {
+  margin-left: 5%;
+}
+
+.nav-container {
+  // background: blue;
+  // width:20%;
+  height: 100%;
+  // border: 5px solid black;
+}
+
+.button-container {
+  height: 60%;
+  // border: 5px solid black;
+}
+
+.view-area,
+.view-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  // border: 5px solid blue;
+}
+
+.view-container {
+  overflow: scroll;
+}
+
 .nav-button {
-  height: 17.5%;
-  width: 60%;
-  margin: 5% 0;
-  background: red;
+  // height: 17.5%;
+  // margin;
+  // background: red;
   // transform: rotate(2deg);
   // transform-origin: left top 0;
 }
@@ -62,4 +88,67 @@ main {
 .rotate-container {
   height: 80%;
   position: relative;
+}
+
+.heading-container {
+  // width: 45%;
+  height: 80%;
+  margin: 0 1%;
+  // border: 5px solid black;
+}
+
+.flex-row-center {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.flex-column-start {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.flex-col-center {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.author-img-container,
+.book-img-container {
+  height: 70%;
+  img {
+    max-height: 80%;
+  }
+}
+
+.cover-photo {
+  margin: 10% 0;
+}
+
+.genre {
+  font-style: italic;
+  font-size: 1.2em !important;
+}
+
+.description p {
+  font-weight: bold;
+  font-size: 1em !important;
+}
+
+.crud-btn {
+  float: right;
+  margin: 0 1%;
+}
+
+.book-card {
+  overflow: auto;
 }

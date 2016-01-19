@@ -5,29 +5,42 @@
 .header-text {
   display: inline-block; }
 
-body {
+body,
+html {
   height: 100vh;
-  width: 100vw; }
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-size: 16pt; }
 
 header {
-  height: 17.5vh; }
+  height: 15vh; }
 
 main {
-  height: 82.5vh; }
-
-.nav-container {
-  background: blue;
-  width: 20%;
-  height: 100%;
-  flex-flow: column nowrap;
-  align-items: baseline;
+  height: 82.5vh;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   justify-content: center; }
 
-.nav-button {
-  height: 17.5%;
-  width: 60%;
-  margin: 5% 0;
-  background: red; }
+.badge {
+  margin-left: 5%; }
+
+.nav-container {
+  height: 100%; }
+
+.button-container {
+  height: 60%; }
+
+.view-area,
+.view-container {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.view-container {
+  overflow: scroll; }
 
 .nav-text {
   display: inline-block; }
@@ -38,3 +51,52 @@ main {
 .rotate-container {
   height: 80%;
   position: relative; }
+
+.heading-container {
+  height: 80%;
+  margin: 0 1%; }
+
+.flex-row-center {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+.flex-column-start {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center; }
+
+.flex-col-center {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center; }
+
+.author-img-container,
+.book-img-container {
+  height: 70%; }
+  .author-img-container img,
+  .book-img-container img {
+    max-height: 80%; }
+
+.cover-photo {
+  margin: 10% 0; }
+
+.genre {
+  font-style: italic;
+  font-size: 1.2em !important; }
+
+.description p {
+  font-weight: bold;
+  font-size: 1em !important; }
+
+.crud-btn {
+  float: right;
+  margin: 0 1%; }
+
+.book-card {
+  overflow: auto; }
