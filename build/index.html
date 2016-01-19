@@ -14,22 +14,26 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
-    <script src="./script/app.js"></script>
+    <script src="./script/index-min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
-      <section class='top-stripe'>
-          <img src="http://image.shutterstock.com/display_pic_with_logo/2381402/238376980/stock-vector-vector-modern-flat-design-square-illustration-on-man-reading-book-with-empty-green-cover-male-238376980.jpg" alt="Galvanize Reads" class="logo-img"/>
-          <h1 class='header-text'>Galvanize Reads</h1>
+      <section class='navbar-inverse'>
+          <a href="#" id="home-button">
+            <img src="http://image.shutterstock.com/display_pic_with_logo/2381402/238376980/stock-vector-vector-modern-flat-design-square-illustration-on-man-reading-book-with-empty-green-cover-male-238376980.jpg" alt="Galvanize Reads" class="logo-img"/>
+            <h1 class='header-text'>Galvanize Reads</h1>
+        </a>
+        <a href="#" id="add-book" class="btn btn-info crud-btn top-btn">Add Book</a>
+        <a href="#" id="add-author" class="btn btn-danger crud-btn top-btn">Add Author</a>
       </section>
     </header>
     <main>
       <section class='nav-container col-lg-3 flex-col-start'>
-        <a href="#" class="nav-button btn btn-primary btn-lg btn-block">authors<span class="badge">63</span></a>
+        <a href="#" id="authors-button" class="nav-button btn btn-primary btn-lg btn-block">authors<span class="badge">63</span></a>
 
-        <a href="#" class="nav-button btn btn-primary btn-lg btn-block">books<span class="badge">63</span></a>
+        <a href="#" id="books-button" class="nav-button btn btn-primary btn-lg btn-block">books<span class="badge">63</span></a>
       </section>
       <section id='view-area' class='view-container col-lg-9'>
 
@@ -57,14 +61,14 @@
         <!-- Book Card View -->
 
 
-          <section class="book-card panel panel-default col-md-10 col-md-offset-1">
+          <!-- <section class="book-card panel panel-default col-md-10 col-md-offset-1">
             <div class="cover-photo-container col-md-3">
               <a href="#book" data-id ="id"><img src="http://www.wired.com/images_blogs/underwire/2012/03/a-fire-upon-the-deep.jpg" alt="" class="col-md-10 col-md-offset-1 cover-photo"/></a>
             </div>
             <div class="book-text-container col-md-9">
               <h3>A Fire Upon the Deep</h3>
               <p class="genre">Science Fiction</p>
-              <blockquote class="description truncated">
+              <blockquote class="description truncate">
                 <p>Lorem Ipsum and A Whole Bunch of Other Stuff</p>
               </blockquote>
               <a href="#" data-id="id" class="btn btn-danger crud-btn">Remove Book</a>
@@ -72,7 +76,7 @@
               <a href="#" data-id="id" class="btn btn-info crud-btn">View Book</a>
 
             </div>
-          </section>
+          </section> -->
 
         </section>
 

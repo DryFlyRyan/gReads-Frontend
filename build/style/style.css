@@ -1,6 +1,7 @@
 .logo-img {
   height: 75px;
-  width: auto; }
+  width: auto;
+  margin-bottom: 1%; }
 
 .header-text {
   display: inline-block; }
@@ -26,9 +27,6 @@ main {
 
 .badge {
   margin-left: 5%; }
-
-.nav-container {
-  height: 100%; }
 
 .button-container {
   height: 60%; }
@@ -100,3 +98,9 @@ main {
 
 .book-card {
   overflow: auto; }
+
+.truncate {
+  overflow: hidden; }
+
+.top-btn {
+  border-radius: 0 0 4px 4px !important; }
