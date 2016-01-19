@@ -1,18 +1,21 @@
 $(document).ready(function() {
-  console.log('document is ready');
+  // Total Arrays
+
+  var authorsArray;
+  var booksArray;
 
   //Connection/Template Vars
 
-  // var remote = 'https://limitless-plains-3321.herokuapp.com/';
+  var remote = 'https://limitless-plains-3321.herokuapp.com/';
 
-  var remote =
-  'http://localhost:8000';
+  // var remote = 'http://localhost:8000';
 
   var view = $('#view-area');
+  console.log('document is ready');
+
+
 
   mainPage();
-
-  // bookCard('a fire upon the deep', 'science fiction', 'description here', 'http://www.wired.com/images_blogs/underwire/2012/03/a-fire-upon-the-deep.jpg');
 
   // View Templates
 
@@ -82,6 +85,89 @@ $(document).ready(function() {
     );
   }
 
+  function bookForm() {
+    view.empty().append(
+      '<form class="form-horizontal">' +
+        '<fieldset>' +
+          '<legend>Add Book</legend>' +
+          '<div class="form-group">' +
+            '<label for="inputTitle" class="col-lg-2 control-label">Title</label>' +
+            '<div class="col-lg-10">' +
+              '<input type="text" class="form-control" id="inputTitle" placeholder="Title" autocomplete="off" style="cursor: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">' +
+            '</div>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="inputGenre" class="col-lg-2 control-label">Genre</label>' +
+            '<div class="col-lg-10">' +
+              '<input type="password" class="form-control" id="inputPassword" placeholder="Genre" autocomplete="off" style="cursor: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">' +
+            '</div>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="inputBookPhoto" class="col-lg-2 control-label">Photo URL</label>' +
+            '<div class="col-lg-10">' +
+              '<input type="text" class="form-control" id="inputBookPhoto" placeholder="Photo URL" autocomplete="off" style="cursor: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">' +
+            '</div>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="inputDescription" class="col-lg-2 control-label">Description</label>' +
+            '<div class="col-lg-10">' +
+              '<textarea class="form-control" rows="3" id="inputDescription" style="margin: 0px -18.8438px 0px 0px; height: 140px; width: 100%;"></textarea>' +
+              '<span class="help-block">Please enter a short description of your book here.</span>' +
+            '</div>' +
+          '</div>' +
+              '<div class="form-group">' +
+            '<div class="col-lg-10 col-lg-offset-2">' +
+              '<button type="reset" class="btn btn-default">Cancel</button>' +
+              '<button type="submit" class="btn btn-primary">Submit</button>' +
+            '</div>' +
+          '</div>' +
+        '</fieldset>' +
+      '</form>'
+    )
+  }
+
+  function authorForm() {
+    view.empty().append(
+      '<form class="form-horizontal">' +
+        '<fieldset>' +
+          '<legend>Add Author</legend>' +
+          '<div class="form-group">' +
+            '<label for="inputFirstName" class="col-lg-2 control-label">First Name</label>' +
+            '<div class="col-lg-10">' +
+              '<input type="text" class="form-control" id="inputFirstName" placeholder="First Name" autocomplete="off" style="cursor: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">' +
+            '</div>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="inputLastName" class="col-lg-2 control-label">Last Name</label>' +
+            '<div class="col-lg-10">' +
+              '<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" autocomplete="off" style="cursor: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">' +
+            '</div>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="inputAuthorPhoto" class="col-lg-2 control-label">Photo URL</label>' +
+            '<div class="col-lg-10">' +
+              '<input type="text" class="form-control" id="inputAuthorPhoto" placeholder="Photo URL" autocomplete="off" style="cursor: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=&quot;); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">' +
+            '</div>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="inputBiography" class="col-lg-2 control-label">Biography</label>' +
+            '<div class="col-lg-10">' +
+              '<textarea class="form-control" rows="3" id="inputBiography" style="margin: 0px -18.8438px 0px 0px; height: 140px; width: 100%;"></textarea>' +
+              '<span class="help-block">Please enter a short description of your book here.</span>' +
+            '</div>' +
+          '</div>' +
+              '<div class="form-group">' +
+            '<div class="col-lg-10 col-lg-offset-2">' +
+              '<button type="reset" class="btn btn-default">Cancel</button>' +
+              '<button type="submit" class="btn btn-primary">Submit</button>' +
+            '</div>' +
+          '</div>' +
+        '</fieldset>' +
+      '</form>'
+    )
+  }
+
+
 // View Functions
 
 function bookCardPage() {
@@ -136,6 +222,32 @@ function getOneAuthor(authorID) {
   })
 }
 
+// Startup Functions
+
+readAll();
+
+function readAll() {
+  getAllAuthors()
+  .then(function(data) {
+    authorsArray = data;
+    $('#authors-button').append(
+      '<span class="badge">'+ authorsArray.length + '</span>'
+    )
+  })
+  getAllBooks()
+  .then(function(data){
+    booksArray = data;
+    $('#books-button').append(
+      '<span class="badge">'+ booksArray.length + '</span>'
+    )
+  })
+}
+
+// Modal Handlers
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
 
 // Event Handlers
 
@@ -179,6 +291,14 @@ $(document).on('click', '.view-book', function(){
     data = data[0];
     bookCard(data.title, data.genre, data.description, data.photo_url, data.id)
   })
+})
+
+$('#add-book').click(function(){
+  bookForm();
+})
+
+$('#add-author').click(function(){
+  authorForm();
 })
 
 //End of the Line
